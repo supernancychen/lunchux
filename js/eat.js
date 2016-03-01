@@ -618,7 +618,7 @@ var EAT = {
     $('<td></td>').attr('data-value',val).attr('data-type',xlsNumberType).attr('data-style','Currency').html(val).appendTo($tr);
   },
   _initExport:function(){
-    this._debug('info','entering _initReviewConfirm...');
+    this._debug('info','entering _initExport...');
     var that = this;
     var val;
     var kidsInfo = this.gInfo['kids']['info'];
@@ -817,7 +817,7 @@ var EAT = {
             (_.isBlank(this.gInfo['apt'])?'':this.gInfo['apt'] )+' '+
             this.gInfo['address'] +' '+
             this.gInfo['city'] +', '+
-            this.gInfo['state'] +' '+
+            Constant.gState[this.gInfo['state']-1] +' '+
             this.gInfo['zip'];
     $('<p></p>').html('Address: '+addr).appendTo($contactnsign);
     if (!_.isBlank(this.gInfo['phone'])) {
