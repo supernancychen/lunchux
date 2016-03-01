@@ -764,9 +764,19 @@ var EAT = {
     that._appendStringTd(val,$tr7);
     $tr7.appendTo($exportTable);
 
+    $("#exportTable").tableExport({
+      headings: true,
+      formats: ["xlsx"],
+      fileName: "id",
+      bootstrap: false,
+      position: "bottom"
+    });
+
   },
   download:function(){
-    tablesToExcel(['exportTable'],['eat'],'eat.xls','Excel');
+      $('#exportTable caption a').first().trigger('click');
+
+//    tablesToExcel(['exportTable'],['eat'],'eat.xls','Excel');
   },
   _initReviewConfirm:function() {
     this._debug('info','entering _initReviewConfirm...');

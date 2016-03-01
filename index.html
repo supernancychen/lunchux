@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="js/ext/jquery-ui-1.11.4.custom/jquery-ui.min.css">
     <link rel="stylesheet" href="js/ext/jquery-ui-1.11.4.custom/jquery-ui.structure.min.css">
     <link rel="stylesheet" href="js/ext/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css">
-    <link rel="stylesheet" href="css/eat.css?v=20160227" type="text/css">
+    <link rel="stylesheet" href="css/eat.css?v=20160228" type="text/css">
 </head>
 <body class="loading">
 <!--header line-->
@@ -394,13 +394,16 @@
 <script src="js/ext/underscore.string.min.js"></script>
 <script src="js/ext/moment.min.js"></script>
 <script src="js/ext/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+<script src="js/ext/xlsx.core.min.js"></script>
+<script src="js/ext/FileSaver.min.js"></script>
+<script src="js/ext/tableexport.min.js"></script>
 <script type="text/javascript">_.mixin(s.exports());</script>
-<script src="js/util.js?v=20160227"></script>
-<script src="js/const.js?v=20160227"></script>
-<script src="js/eat.js?v=20160227"></script>
+<script src="js/util.js?v=20160228"></script>
+<script src="js/const.js?v=20160228"></script>
+<script src="js/eat.js?v=20160228"></script>
 <script type="text/javascript">
     window.onbeforeunload = function() {
-        return "You're about to end your application, are you sure?";
+        return "You're about to end your application.";
     }
     $('aside li').tooltip({
         tooltipClass:'help-tooltip',
