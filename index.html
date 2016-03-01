@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>National School Lunch Program - Free and Reduced Price School Meals Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <meta name="description" content="Free and Reduced Price School Meals Application">
+    <meta name="keywords" content="Free and Reduced Price School Meals Application">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/logo/favicon.ico" type="image/ico"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="images/logo/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/logo/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/logo/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/logo/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/logo/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/logo/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/logo/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/logo/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="images/logo/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/logo/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo/favicon-16x16.png">
+    <link rel="manifest" href="images/logo/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="images/logo/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="js/ext/jquery-ui-1.11.4.custom/jquery-ui.min.css">
+    <link rel="stylesheet" href="js/ext/jquery-ui-1.11.4.custom/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="js/ext/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="css/eat.css?v=20160226" type="text/css">
+</head>
+<body class="loading">
+<!--header line-->
+    <header>
+        <div class="page-center">
+            <div class="clearfix">
+                <img src="images/logo/apple-icon-57x57.png" alt="logo" class="left">   <!--todo change img-->
+                <div class="left">
+                    <h5>National School Lunch Program</h5>
+                    <h6>Free and Reduced Price School Meals Application</h6>
+                </div>
+            </div>
+            <aside>
+                <!--a href="javascript:EAT.restart()">Restart</a-->
+             <!--   <span>&nbsp;</span>-->
+                <ul><li data-step="1" title="Step 1: Children Information">1</li><li
+                        data-step="2" title="Step 2: Assistant Programs">2</li><li
+                        data-step="3" title="Step 3: Household Income">3</li><li
+                        data-step="4" title="Step 4: Contact Information & Signature">4</li></ul>
+            </aside>
+        </div>
+    </header>  <form id="eatForm">
+<!--welcome-->
+    <section class="page-center card open" id="cWelcome">
+      <figure>
+          <p><img src="images/0_food.png" alt="welcome"/></p>
+          <figcaption>
+             <h1>Welcome to Free and Reduced Price School Meals</h1>
+              <p>Please complete one application per household.</p>              
+          </figcaption>
+      </figure>
+      <div class="statement loading">
+          <p>In accordance with Federal civil rights law and U.S. Department of Agriculture (USDA) civil rights regulations and policies, the USDA, its Agencies, offices, and employees, and institutions participating in or administering USDA programs are prohibited from discriminating based on race, color, national origin, sex, disability, age, or reprisal or retaliation for prior civil rights activity in any program or activity conducted or funded by USDA.</p>
+          <p>Persons with disabilities who require alternative means of communication for program information (e.g. Braille, large print, audiotape, American Sign Language, etc.), should contact the Agency (State or local) where they applied for benefits. Individuals who are deaf, hard of hearing or have speech disabilities may contact USDA through the Federal Relay Service at (800) 877-8339. Additionally, program information may be made available in languages other than English.</p>
+          <p>To file a program complaint of discrimination, complete the USDA Program Discrimination Complaint Form, (AD-3027) found online at: <a href="http://www.ascr.usda.gov/complaint_filing_cust.html">http://www.ascr.usda.gov/complaint_filing_cust.html</a>, and at any USDA office, or write a letter addressed to USDA and provide in the letter all of the information requested in the form. To request a copy of the complaint form, call (866) 632-9992. Submit your completed form or letter to USDA by:</p>
+          <ol>
+              <li>Mail: U.S. Department of Agriculture<br/>
+                  Office of the Assistant Secretary for Civil Rights<br/>
+                  1400 Independence Avenue, SW<br/>
+                  Washington, D.C. 20250-9410</li>
+              <li>Fax: (202) 690-7442; or</li>
+              <li>Email: program.intake@usda.gov</li>
+          </ol>
+          <p>This institution is an equal opportunity provider.</p>
+      </div>
+      <p class="loading bline"><button type="button" class="btn next" data-nav="cStep1">START APPLICATION</button></p>
+    </section>
+
+<!--step1: kids number, name-->
+<section class="page-center card" id="cStep1" data-step="1">
+    <figure>
+        <p><img src="images/1_children.png" alt="children"/></p>
+        <figcaption>
+            <h1><!--span class="numb">1</span-->Step 1. How many children are in the household?</h1>
+            <p class="w400 m-center justify">This includes all <a href="#" class="help" title="Anyone who is living with you and shares income and expenses, even if not related">household members</a> who are infants, children, and students up to and including grade 12</p>
+            <p class="center m-center w200 dropdown valid required" id="kisNumberDropdown" title="Please select a number">
+                <span class="drop-select fields " data-defaulttext='SELECT...' data-id="kids.num">SELECT...</span><i class="fa fa-caret-down"></i><select class="drop-list fields validation" id="kidsNumber" data-id="kids.num"></select></p>
+            <div id="kidCards">
+                <div class="kid-card sub-info sub-card" data-subinfo="kidCardInfo">
+                    <h1>Child <b class="kid-index"></b><a href="#" class="action remove topop">Remove <i class="fa fa-times fa-lg"></i></a></h1>
+                    <p>
+                        <input type="text"  name="aa" placeholder="First Name" class="center fields w250 validation" data-id="kids.info.childFirstName" title="Please enter a first name">
+                        <input type="text" placeholder="M" class="center fields w150" data-id="kids.info.childMiddleName">
+                        <input type="text" placeholder="Last Name" class="center fields w250 validation" data-id="kids.info.childLastName" title="Please enter a last name">
+                    </p>
+                    <div class="clearfix">
+                        <div class="left content w300" >
+                            <h4>Check all that apply</h4>
+                            <p class="v-checkbox">
+                                <span class="checkbox"><input type="checkbox" data-id="kids.info.isStudent" class="fields"><label>Student</label></span></p><p>
+                                <span class="checkbox"><input type="checkbox" data-id="kids.info.isFoster" class="fields" ><label>Foster child</label></span></p><p>
+                                <span class="checkbox"><input type="checkbox" data-id="kids.info.isHomeless" class="fields"><label>Homeless, Migrant, Runaway</label></span>
+                            </p>
+                        </div>
+                        <div class="right content w350">
+                            <h4>Racial & Ethnic Identities <i class="fa fa-question-circle help"  title="We are required to ask for information about your children’s race and ethnicity. This information is important and helps to make sure we are fully serving our community. Responding to this section is optional and does not affect your children’s eligibility for free or reduced price meals."></i> (Optional)</h4>
+                            <p class="dropdown left w300 ethnicity">
+                                <span class="drop-select fields" data-defaulttext='Ethnicity' data-type="text" data-var='gEthnicity' data-id="kids.info.ethnicity">Ethnicity</span><i class="fa fa-caret-down"></i><select class="drop-list fields" data-id="kids.info.ethnicity" ></select>
+                            </p>
+                            <p class="dropdown left w300 race multi">
+                                <span class="drop-select fields" data-defaulttext='Race' data-type="text" data-var='gRace' data-id="kids.info.race">Race</span><i class="fa fa-caret-down"></i><select class="drop-list fields" data-id="kids.info.race" i></select>  <span class="drop-multi v-checkbox clearfix"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="btn-line clearfix w400 m-center two">
+                <button type="button" class="btn back" data-nav="cWelcome">BACK</button>
+                <button type="button" class="btn next" disabled="disabled" data-nav="cStep2">NEXT</button>
+            </p>
+        </figcaption>
+    </figure>
+</section>
+
+<!--step2 - assistance-->
+<section class="page-center card" id="cStep2" data-step="2">
+    <figure>
+        <p><img src="images/2_assistance.png" alt="assistance"/></p>
+        <figcaption>
+            <h1><!--span class="numb">2</span-->Step 2. Assistant Programs</h1>
+            <p class="w550 m-center justify">Do any household members (including you) currently participate in one or more of the following assistance programs:
+                <a href="#" title="Supplemental Nutrition Assistance Program"  class="help" >SNAP</a>, <a href="#" title="Temporary Assistance for Needy Families" class="help" >TANF</a>, or <a href="#"  class="help" title="Food Distribution Program on Indian Reservations">FDPIR</a>?.</p>
+            <p class="clearfix sml checkbox">
+                <span class="left"><input type="checkbox" class="chkIsBenefit" data-id="isInBenefitProgram"></span>
+                <span class="left"><label>A household member participates in one of the assistance programs</label><br>
+                    <span class="ui-input-line"><input type="text" size="2" maxlength="2" class="ui-input c1 validation" data-len="2" title="Please enter a case number" required/> -
+                    <input type="text" size="3" maxlength="3" class="ui-input c2 validation" required data-len="3" /> -
+                    <input type="text" size="2" maxlength="2" class="ui-input c3 validation" required data-len="2"/> -
+                    <input type="text" size="6" maxlength="6" class="ui-input c4 validation" required />
+                        </span>
+                    <input type="hidden" data-id="benefitCaseNumber" id="benefitCaseNumber" class="fields"/>
+                </span>
+            </p>
+            <p class="btn-line clearfix m-center two">
+                <button type="button" class="btn back" data-nav="cStep1">BACK</button>
+                <button type="button" class="btn next" disabled="disabled" data-nav="cStep3">NEXT</button>
+            </p>
+        </figcaption>
+    </figure>
+</section>
+
+<!--step3 - ssn-->
+<section class="page-center card no-focus" id="cStep3" data-step="3">
+    <figure>
+        <p><img src="images/3_income.png" alt="income"/></p>
+        <figcaption>
+            <h1><!--span class="numb">3</span><span class="numb-a">a</span-->Step 3a. Household Income</h1>
+            <div id="step3SSN" class="dispnone">
+                <p>Please report income for all household members</p>
+                <div class="statement">
+                   <h4>Use of Information Statement</h4>
+                    <p>The Richard B. Russell National School Lunch Act requires the information on this application. You do not have to give the information, but if you do not submit all needed information, we cannot approve your child for free or reduced price meals. You must include the last four digits of the social security number of the adult household member who signs the application. The social security number is not required when you apply on behalf of a foster child or you list a Supplemental Nutrition Assistance Program (SNAP), Temporary Assistance for Needy Families (TANF) Program or Food Distribution Program on Indian Reservations (FDPIR) case number or other FDPIR identifier for your child or when you indicate that the adult household member signing the application does not have a social security number. We will use your information to determine if your child is eligible for free or reduced price meals, and for administration and enforcement of the lunch and breakfast programs.</p>
+                    <p>We may share your eligibility information with education, health, and nutrition programs to help them evaluate, fund, or determine benefits for their programs, auditors for program reviews, and law enforcement officials to help them look into violations of program rules.</p>
+                </div>
+                <p class="w400 m-center">Last four digits of Social Security Number (SSN) of primary wage earner or other adult household member</p>
+                <p>
+                    <label class="inline">xxx - xxx - </label><input type="text" id='xx' maxlength="4" class="fields validation w100 inline" data-id="lastSSN" title="Please enter the last four digits of Social Security Number (SSN) of primary wage earner or other adult household member "/>
+                </p>
+                <p class="checkbox"><input type="checkbox" class="fields" data-id="noSSN"><label>Check if no SSN</label></p>
+            </div>
+            <div id="step3Skip" class="dispnone">
+                <p class="w500 m-center">You can skip this section because a household member participates in an assistant program or because of children status</p>
+            </div>
+            <p class="btn-line clearfix m-center two">
+                <button type="button" class="btn back" data-nav="cStep2">BACK</button>
+                <button type="button" class="btn next" disabled="disabled" data-nav="cStep3-1">NEXT</button>
+            </p>
+        </figcaption>
+    </figure>
+</section>
+
+<!--step3-1: kids income-->
+<section class="page-center card" id="cStep3-1" data-step="3">
+    <figure>
+        <figcaption>
+            <h1><!--span class="numb">3</span><span class="numb-a">b</span-->Step 3b. Child Income <i class="fa fa-question-circle help" title="Child income is money received from outside your household that is paid directly to your children"></i></h1>
+            <p>Please enter earnings from work or income from any other source.</p>
+            <div id="kidIncome" class="income-card">
+                <div class="kid-income sub-info sub-card" data-subinfo="kidCardInfo">
+                    <div class="clearfix with-income checkbox" data-id="incomeSalary"><input type="checkbox"><label>Salary or wages from a job</label>
+                    </div>
+
+                    <div class="clearfix with-income checkbox" data-id="SSBenefit"><input type="checkbox"><label><a href="#"  class="help" title="For the child’s own blindness or disability, or because a parent is disabled, retired, or deceased">Social Security benefits</a></label>
+                    </div>
+
+                    <div class="clearfix with-income checkbox" data-id="outerPerson"><input type="checkbox"><label>Spending money or other income from <a href="#"  class="help" title=" A person outside the household can be an extended family member or friend">a person outside the household</a></label>
+                    </div>
+
+                    <div class="clearfix with-income checkbox" data-id="otherIncome"><input type="checkbox"><label>Income from <a href="#"  class="help" title="Such as from a private pension fund, annuity, or trust">any other source</a></label>
+                    </div>
+                    <hr/>
+                    <div class="clearfix no-income checkbox"><input type="checkbox"><label>This child has no income to report</label></div>
+                </div>
+            </div>
+            <div class="dispnone incomeOftenBox">
+                <p class="clearfix"><label class="left">How much income?</label><input type="text" class="w200 right fields " placeholder="$" title="Please enter a number"/></p>
+                <p><label class="left">How often is income received?</label><span title="please select a option" class="w200 dropdown right " ><span class="drop-select fields" data-type="text" data-var='gOften' data-defaulttext='SELECT...'>SELECT...</span><i class="fa fa-caret-down"></i><select class="drop-list fields "></select></span> </p>
+            </div>
+            <p class="btn-line clearfix m-center two">
+                <button type="button" class="btn back" data-nav="cStep3">BACK</button>
+                <button type="button" class="btn next" disabled="disabled" data-nav="cStep3-2">NEXT</button>
+            </p>
+        </figcaption>
+    </figure>
+</section>
+
+<!--step3-2: adults-->
+<section class="page-center card" id="cStep3-2" data-step="3">
+    <figure>
+        <figcaption>
+            <h1><!--span class="numb">3</span><span class="numb-a">c</span-->Step 3c. How many adults are in the household?</h1>
+            <p>List all household members (including yourself) not previously listed, even if they do not receive income. For each household member listed, if they do receive income, report total income for each source. If you leave any fields blank, you are certifying (promising) that there is no income to report.</p>
+            <p class="center m-center w200 dropdown adult-num valid required" title="Please select a number">
+                <span class="drop-select fields" data-defaulttext='SELECT...' data-id="adults.num">SELECT...</span><i class="fa fa-caret-down"></i><select class="drop-list fields validation" id="adultsNumber" data-id="adults.num"></select></p>
+
+            <div id="adultCards" class="income-card">
+                <div class="adult-card sub-info sub-card" data-subinfo="adultCardInfo">
+                    <h1>Adult <b class="adult-index"></b><a href="#" class="action remove topop">Remove <i class="fa fa-times"></i></a></h1>
+                    <p class="adult-name">
+                        <input type="text" placeholder="First Name" class="center fields w200 validation" data-id="adults.info.adultFirstName" title="Please enter a first name">
+                        <input type="text" placeholder="Last Name" class="center fields w200 validation" data-id="adults.info.adultLastName" title="Please enter a last name">
+                    </p>
+                    <div class="clearfix with-income checkbox" data-id="work"><input type="checkbox"><label>Work income</label></div>
+                    <div class="clearfix with-income checkbox" data-id="military"><input type="checkbox"><label>U.S. military income</label></div>
+                    <div class="clearfix with-income checkbox" data-id="assistance"><input type="checkbox"><label>Public assistance, alimony, or child support</label></div>
+                    <div class="clearfix with-income checkbox" data-id="retirement"><input type="checkbox"><label>Retirement or disability income</label></div>
+                    <div class="clearfix with-income checkbox" data-id="otherAdultIncome"><input type="checkbox"><label>Investment or any other income</label></div>
+                    <hr/>
+                    <div class="clearfix no-income checkbox"><input type="checkbox"><label>This household member has no income to report</label></div>
+                </div>
+            </div>
+
+
+            <div class="dispnone adultIncomeOftenBox">
+                <div class="third-info">
+                <p class="clearfix type-list"><span class="w550 dropdown left valid required" title="Please select a option"><span class="drop-select fields " data-type="text-array" data-var='gAdultIncomeType' data-defaulttext='SELECT...'>SELECT...</span><i class="fa fa-caret-down"></i><select class="drop-list fields validation"></select></span> </p>
+                <p class="clearfix"><label class="left">How much income?</label><input type="text" class="w200 right fields validation" placeholder="$" title="Please enter a number"/></p>
+                <p class="clearfix often-list"><label class="left">How often is income received?</label><span class="w200 dropdown right valid required" title="Please select a option"><span class="drop-select fields" data-type="text" data-var='gOften' data-defaulttext='SELECT...'>SELECT...</span><i class="fa fa-caret-down"></i><select class="drop-list fields validation"></select></span> </p>
+                </div>
+            </div>
+
+            <p class="btn-line clearfix m-center two w400">
+                <button type="button" class="btn back" data-nav="cStep3-1">BACK</button>
+                <button type="button" class="btn next" disabled="disabled" data-nav="cStep3-3">NEXT</button>
+            </p>
+        </figcaption>
+    </figure>
+</section>
+
+
+<!--step3-4: income summary-->
+<section class="page-center card" id="cStep3-3" data-step="3">
+    <figure>
+        <p><img src="images/3_income.png" alt="income"/></p>
+        <figcaption>
+            <h1><!--span class="numb">3</span-->Step 3d. Household Income Summary</h1>
+            <div class="sub-card summary-card kids-summary">
+                <h1>Child Income<a href="javascript:EAT.toChangeCard('cStep3-3','cStep3-1')" class="action">Edit</a></h1>
+                <div class="kid-list"></div>
+            </div>
+            <div class="sub-card summary-card adults-summary">
+                <h1>Adult Income<a href="javascript:EAT.toChangeCard('cStep3-3','cStep3-2')" class="action">Edit</a></h1>
+                <div class="adult-list"></div>
+            </div>
+            <p class="btn-line clearfix m-center two">
+                <button type="button" class="btn back" data-nav="cStep3-2">BACK</button>
+                <button type="button" class="btn next" data-nav="cStep4">NEXT</button>
+            </p>
+        </figcaption>
+    </figure>
+</section>
+
+<!--step4-->
+<section class="page-center card" id="cStep4" data-step="4">
+    <figure>
+        <p><img src="images/4a_contact.png" alt="contact"/></p>
+        <figcaption>
+            <h1><!--span class="numb">4</span-->Step 4a. Contact Information</h1>
+            <div class="pad-left">
+                <p class="clearfix">
+                    <input type="text" class="left fields address cont validation" placeholder="Street address" data-id="address" title="Please enter address"/>
+                    <input type="text" class="left fields apt" placeholder="Apt #" data-id="apt"/>
+                </p>
+                <p class="clearfix">
+                    <input type="text" class="left fields city cont validation" placeholder="City" data-id="city" title="Please enter city"/>
+                    <span class="left dropdown cont valid required" title="Please select a state">
+                        <span class="drop-select fields " data-type="text" data-var="gState" data-defaulttext='State' data-id="state">State</span><i class="fa fa-caret-down"></i><select class="drop-list fields validation" data-id="state"></select></span>
+                    <input type="text" class="left fields w100 validation" placeholder="Zip" data-id="zip" title="Please enter a zip"/>
+                </p>
+                <p>
+                    <input type="text" class="fields whole-line" placeholder="Daytime Phone (optional)" data-id="phone"/>
+                </p>
+                <p>
+                    <input type="text" class="fields whole-line" placeholder="Email (optional)" data-id="email"/>
+                </p>
+            </div>
+            <p class="btn-line clearfix m-center two w400">
+                <button type="button" class="btn back" data-nav="cStep3">BACK</button>
+                <button type="button" class="btn next" disabled="disabled" data-nav="cStep4-1">NEXT</button>
+            </p>
+        </figcaption>
+    </figure>
+</section>
+
+<!--step4-1-->
+<section class="page-center card" id="cStep4-1" data-step="4">
+    <figure>
+        <p><img src="images/4b_signature.png" alt="contact"/></p>
+        <figcaption>
+            <h1>Step 4b. Adult Signature</h1>
+            <p style="width:570px">The person signing is furnishing true information and to advise that person that
+                the application is being made in connection with the receipt of Federal funds;
+                School officials may verify the information on the application; and
+                Deliberate misrepresentation of the information may subject the applicant to
+                prosecution under State and Federal statutes.
+            </p>
+            <p>
+                <input type="text" class="fields whole-line validation" placeholder="Signature of adult completing the form" data-id="signature" id="signature" title="Please enter a signature of adult completing the form"/>
+            </p>
+            <p>
+                <input type="text" class="fields whole-line validation" placeholder="Printed name of adult completing the form" data-id="signaturePrint" id="signaturePrint" title="Please enter a printed name of adult completing the form, it should be the same as the signature"/>
+            </p>
+            <p>Date signed: <span id="signedDate"></span></p>
+            <p class="btn-line clearfix m-center two">
+                <button type="button" class="btn back" data-nav="cStep4">BACK</button>
+                <button type="button" class="btn next" disabled="disabled" data-nav="cConfirm">NEXT</button>
+            </p>
+        </figcaption>
+    </figure>
+</section>
+
+<!--confirm-->
+<section class="page-center card" id="cConfirm" data-step="4">
+    <figure>
+        <p><img src="images/4b_signature.png" alt="contact"/></p>
+        <figcaption>
+            <h1>Step 4c. Review Your Application</h1>
+            <p>Please complete one application per household</p>
+
+            <div class="sub-card summary-card child-info">
+                <h1>1. Child Information<a href="javascript:EAT.toChangeCard('cConfirm','cStep1')" class="action">Edit</a></h1>
+                <div class="child-list"></div>
+            </div>
+
+            <div class="sub-card summary-card assistant-info">
+                <h1>2. Assistant Programs<a href="javascript:EAT.toChangeCard('cConfirm','cStep2')" class="action">Edit</a></h1>
+                <div class="assistant-list"></div>
+            </div>
+
+            <div class="sub-card summary-card household-info">
+                <h1>3. Household Income<a href="javascript:EAT.toChangeCard('cConfirm','cStep3')" class="action">Edit</a></h1>
+                <div class="household-list"></div>
+            </div>
+
+            <div class="sub-card summary-card contactnsign-info">
+                <h1>4. Contact Information & Signature<a href="javascript:EAT.toChangeCard('cConfirm','cStep4')" class="action">Edit</a></h1>
+                <div class="contactnsign-list"></div>
+            </div>
+
+            <p class="btn-line clearfix m-center two">
+                <button type="button" class="btn back" data-nav="cStep4-1">BACK</button>
+                <button type="button" class="btn next" data-nav="cExport">SUBMIT APPLICATION</button>
+            </p>
+        </figcaption>
+    </figure>
+</section>
+
+<section class="page-center card" id="cExport" data-step="4">
+    <figure>
+        <p><img src="images/0_food.png" alt="contact"/></p>
+        <figcaption>
+            <h1>Your application has been successfully submitted</h1>
+            <p>You will receive an email confirmation soon.</p>
+            <p class="internal">Staff Only: <a href="javascript:EAT.download()">Download application</a> (.xls)</p>
+
+            <table id="exportTable">
+
+            </table>
+        </figcaption>
+    </figure>
+</section>
+</form>
+<script src="js/ext/jquery-2.1.1.min.js"></script>
+<script src="js/ext/underscore-min.js"></script>
+<script src="js/ext/underscore.string.min.js"></script>
+<script src="js/ext/moment.min.js"></script>
+<script src="js/ext/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+<script type="text/javascript">_.mixin(s.exports());</script>
+<script src="js/util.js?v=20160226"></script>
+<script src="js/const.js?v=20160226"></script>
+<script src="js/eat.js?v=20160226"></script>
+<script type="text/javascript">
+    $('aside li').tooltip({
+        tooltipClass:'help-tooltip',
+        position: {
+            my: "center bottom-20",
+            at: "center top",
+            using: function( position, feedback ) {
+                $( this ).css( position );
+                $( "<div>" )
+                        .addClass( "arrow" )
+                        .addClass( feedback.vertical )
+                        .addClass( feedback.horizontal )
+                        .appendTo( this );
+            }
+        }
+    });
+
+    $('body').click(function(e){
+        if ($(this).closest('.popup').length==0 && !$(e.target).hasClass('topop')) $('.popup').remove();
+    });
+    EAT.init();
+</script>
+</body>
+</html>
