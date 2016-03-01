@@ -28,21 +28,20 @@
     <link rel="stylesheet" href="js/ext/jquery-ui-1.11.4.custom/jquery-ui.min.css">
     <link rel="stylesheet" href="js/ext/jquery-ui-1.11.4.custom/jquery-ui.structure.min.css">
     <link rel="stylesheet" href="js/ext/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css">
-    <link rel="stylesheet" href="css/eat.css?v=20160226" type="text/css">
+    <link rel="stylesheet" href="css/eat.css?v=20160227" type="text/css">
 </head>
 <body class="loading">
 <!--header line-->
     <header>
         <div class="page-center">
             <div class="clearfix">
-                <img src="images/logo/apple-icon-57x57.png" alt="logo" class="left">   <!--todo change img-->
+                <a href="javascript:EAT.restart()"><img src="images/logo/apple-icon-57x57.png" alt="logo" class="left" />
                 <div class="left">
                     <h5>National School Lunch Program</h5>
                     <h6>Free and Reduced Price School Meals Application</h6>
-                </div>
+                </div></a>
             </div>
             <aside>
-                <!--a href="javascript:EAT.restart()">Restart</a-->
              <!--   <span>&nbsp;</span>-->
                 <ul><li data-step="1" title="Step 1: Children Information">1</li><li
                         data-step="2" title="Step 2: Assistant Programs">2</li><li
@@ -156,7 +155,7 @@
     <figure>
         <p><img src="images/3_income.png" alt="income"/></p>
         <figcaption>
-            <h1><!--span class="numb">3</span><span class="numb-a">a</span-->Step 3a. Household Income</h1>
+            <h1><!--span class="numb">3</span><span class="numb-a">a</span-->Step 3. Household Income</h1>
             <div id="step3SSN" class="dispnone">
                 <p>Please report income for all household members</p>
                 <div class="statement">
@@ -189,9 +188,9 @@
             <p>Please enter earnings from work or income from any other source.</p>
             <div id="kidIncome" class="income-card">
                 <div class="kid-income sub-info sub-card" data-subinfo="kidCardInfo">
+                    <h1></h1>
                     <div class="clearfix with-income checkbox" data-id="incomeSalary"><input type="checkbox"><label>Salary or wages from a job</label>
                     </div>
-
                     <div class="clearfix with-income checkbox" data-id="SSBenefit"><input type="checkbox"><label><a href="#"  class="help" title="For the child’s own blindness or disability, or because a parent is disabled, retired, or deceased">Social Security benefits</a></label>
                     </div>
 
@@ -200,8 +199,9 @@
 
                     <div class="clearfix with-income checkbox" data-id="otherIncome"><input type="checkbox"><label>Income from <a href="#"  class="help" title="Such as from a private pension fund, annuity, or trust">any other source</a></label>
                     </div>
-                    <hr/>
-                    <div class="clearfix no-income checkbox"><input type="checkbox"><label>This child has no income to report</label></div>
+                    <div class="clearfix no-income checkbox">
+                        <hr/>
+                        <input type="checkbox"><label>This child has no income to report</label></div>
                 </div>
             </div>
             <div class="dispnone incomeOftenBox">
@@ -237,8 +237,7 @@
                     <div class="clearfix with-income checkbox" data-id="assistance"><input type="checkbox"><label>Public assistance, alimony, or child support</label></div>
                     <div class="clearfix with-income checkbox" data-id="retirement"><input type="checkbox"><label>Retirement or disability income</label></div>
                     <div class="clearfix with-income checkbox" data-id="otherAdultIncome"><input type="checkbox"><label>Investment or any other income</label></div>
-                    <hr/>
-                    <div class="clearfix no-income checkbox"><input type="checkbox"><label>This household member has no income to report</label></div>
+                    <div class="clearfix no-income checkbox"><hr/><input type="checkbox"><label>This household member has no income to report</label></div>
                 </div>
             </div>
 
@@ -287,7 +286,7 @@
     <figure>
         <p><img src="images/4a_contact.png" alt="contact"/></p>
         <figcaption>
-            <h1><!--span class="numb">4</span-->Step 4a. Contact Information</h1>
+            <h1><!--span class="numb">4</span-->Step 4. Contact Information</h1>
             <div class="pad-left">
                 <p class="clearfix">
                     <input type="text" class="left fields address cont validation" placeholder="Street address" data-id="address" title="Please enter address"/>
@@ -385,9 +384,7 @@
             <p>You will receive an email confirmation soon.</p>
             <p class="internal">Staff Only: <a href="javascript:EAT.download()">Download application</a> (.xls)</p>
 
-            <table id="exportTable">
-
-            </table>
+            <table id="exportTable"></table>
         </figcaption>
     </figure>
 </section>
@@ -398,10 +395,13 @@
 <script src="js/ext/moment.min.js"></script>
 <script src="js/ext/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
 <script type="text/javascript">_.mixin(s.exports());</script>
-<script src="js/util.js?v=20160226"></script>
-<script src="js/const.js?v=20160226"></script>
-<script src="js/eat.js?v=20160226"></script>
+<script src="js/util.js?v=20160227"></script>
+<script src="js/const.js?v=20160227"></script>
+<script src="js/eat.js?v=20160227"></script>
 <script type="text/javascript">
+    window.onbeforeunload = function() {
+        return "You're about to end your application, are you sure?";
+    }
     $('aside li').tooltip({
         tooltipClass:'help-tooltip',
         position: {

@@ -105,11 +105,10 @@ var EAT = {
     var that = this;
     this._debug('info','entering init...');
     $.setCheckboxIdLabel();
-    var dh = $(window).height()-1.5*350;
-    if (dh>45) dh=45;
+    var dh = $(window).height()-900;
+    if (dh<100) dh=100;
     $('#cWelcome .btn.next').closest('p')
             .css('margin-top',dh+'px')
-            .css('margin-bottom',dh+100+'px')
             ;
     _.defer(function(){
       $('body').removeClass('loading');
@@ -610,61 +609,83 @@ var EAT = {
     });
     that.setCardNextButton(cardId);
   },
+  _appendStringTd:function(val,$tr) {
+    var xlsStringType = 'String';
+    $('<td></td>').attr('data-value',val).attr('data-type',xlsStringType).html(val).appendTo($tr);
+  },
+  _appendCurrencyTd:function(val,$tr) {
+    var xlsNumberType = 'Number';
+    $('<td></td>').attr('data-value',val).attr('data-type',xlsNumberType).attr('data-style','Currency').html(val).appendTo($tr);
+  },
   _initExport:function(){
     this._debug('info','entering _initReviewConfirm...');
     var that = this;
-
+    var val;
     var kidsInfo = this.gInfo['kids']['info'];
     var $exportTable = $('#exportTable').empty();
 
     $('aside li.enabled').removeClass('enabled');
     _.each(kidsInfo,function(item){
-      var name = item['childFirstName']+' '+item['childLastName'];
       var $tr = $('<tr></tr>');
-      $('<td></td>').html(name).appendTo($tr);
+      val = 'Child Name:';
+      that._appendStringTd(val,$tr);
+      val = item['childFirstName']+' '+item['childLastName'];
+      that._appendStringTd(val,$tr);
+      $tr.appendTo($exportTable);
+
       var labels=[];
       _.each(Constant.gKidsFeatureLabel,function(v,k){
         if (item[k]==1) labels.push(v);
       });
-      var lb = labels.length>0?labels.join(', '):'';
-      $('<td></td>').html(lb).appendTo($tr);
+      val = labels.length>0?labels.join(', '):'';
+      that._appendStringTd(val,$tr);
       $tr.appendTo($exportTable);
     });
 
     var $tr1 = $('<tr></tr>');
     if (this.gInfo['isInBenefitProgram']==1) {
-      $('<td></td>').html('Assistant Program Case Number').appendTo($tr1);
-      $('<td></td>').html(this.gInfo['benefitCaseNumber']).appendTo($tr1);
+      val = 'Assistant Program Case Number';
+      that._appendStringTd(val,$tr1);
+      val = this.gInfo['benefitCaseNumber'];
+      that._appendStringTd(val,$tr1);
     }
     else {
-      $('<td></td>').html('Assistant Program').appendTo($tr1);
-      $('<td></td>').html('None').appendTo($tr1);
+      val = 'Assistant Program';
+      that._appendStringTd(val,$tr1);
+      val = 'None';
+      that._appendStringTd(val,$tr1);
     }
     $tr1.appendTo($exportTable);
 
 
    if (this.isSkipIncome) {
      var $tr21 = $('<tr></tr>');
-     $('<td></td>').html('Household Income').appendTo($tr21);
-     $('<td></td>').html('(skip)').appendTo($tr21);
+     val = 'Household Income';
+     that._appendStringTd(val,$tr21);
+     val = '(skip)';
+     that._appendStringTd(val,$tr21);
+     $tr21.appendTo($exportTable);
    }
     else {
      var kids = this.gInfo['kids']['info'];
      _.each(kids,function(item){
        var $tr2 = $('<tr></tr>');
-       var name = item['childFirstName']+' '+item['childLastName'];
-       $('<td></td>').html(name).appendTo($tr2);
+       var val = item['childFirstName']+' '+item['childLastName'];
+       that._appendStringTd(val,$tr2);
        var withIncome = false;
        _.each(Constant.gKidsIncomeLabel,function(v,k){
          if (!$.isEmptyObject(item[k]) && parseInt(item[k]['amt'])>0) {
-           var amt = item[k]['amt'];
+           val = parseInt(item[k]['amt']);
+           that._appendCurrencyTd(val,$tr2);
            var often = item[k]['often'];
-           $('<td></td>').html(v+': $'+amt+', '+Constant.gOften[often-1]).appendTo($tr2);
+           val = Constant.gOften[often-1];
+           that._appendStringTd(val,$tr2);
            withIncome=true;
          }
        });
        if (!withIncome) {
-         $('<td></td>').html('This child has no income to report').appendTo($tr2);
+         val = 'This child has no income to report';
+         that._appendStringTd(val,$tr2);
        }
        $tr2.appendTo($exportTable);
      });
@@ -672,8 +693,8 @@ var EAT = {
      var $tr3 = $('<tr></tr>');
      var adults = this.gInfo['adults']['info'];
      _.each(adults,function(item){
-       var name = item['adultFirstName']+' '+item['adultLastName'];
-       $('<td></td>').html(name).appendTo($tr3);
+       val = item['adultFirstName']+' '+item['adultLastName'];
+       that._appendStringTd(val,$tr3);
        var withIncome = false;
        _.each(Constant.gAdultsIncomeLabel,function(v,k){
          var incomeArr = item[k];
@@ -681,17 +702,24 @@ var EAT = {
            var amt = parseInt(it['amt']);
            if (amt>0) {
              if (idx==0) {
-               $('<td></td>').html(v+': ').appendTo($tr3);
+               val = v;
+               that._appendStringTd(val,$tr3);
              }
              var type = it['type'];
              var often = it['often'];
-             $('<td></td>').addClass('sub-income').html(Constant.gAdultIncomeType[k][type]+': $'+amt+', '+Constant.gOften[often-1]).appendTo($tr3);
+             val = Constant.gAdultIncomeType[k][type];
+             that._appendStringTd(val,$tr3);
+             val = amt;
+             that._appendCurrencyTd(val,$tr3);
+             val = Constant.gOften[often-1];
+             that._appendStringTd(val,$tr3);
              withIncome=true;
            }
          });
        });
        if (!withIncome) {
-         $('<td></td>').html('This household member has no income to report').appendTo($tr3);
+         val = 'This household member has no income to report';
+         that._appendStringTd(val,$tr3);
        }
        $tr3.appendTo($exportTable);
 
@@ -700,33 +728,40 @@ var EAT = {
    }
 
     var $tr4 = $('<tr></tr>');
-    var addr =
+    val= 'Address';
+    that._appendStringTd(val,$tr4);
+    val =
             (_.isBlank(this.gInfo['apt'])?'':this.gInfo['apt'] )+' '+
             this.gInfo['address'] +' '+
             this.gInfo['city'] +', '+
             this.gInfo['state'] +' '+
             this.gInfo['zip'];
-    $('<td></td>').html('Address').appendTo($tr4);
-    $('<td></td>').html(addr).appendTo($tr4);
+    that._appendStringTd(val,$tr4);
     $tr4.appendTo($exportTable);
 
     if (!_.isBlank(this.gInfo['phone'])) {
       var $tr5 = $('<tr></tr>');
-      $('<td></td>').html('Phone').appendTo($tr5);
-      $('<td></td>').html(this.gInfo['phone']).appendTo($tr5);
+      val = 'Phone';
+      that._appendStringTd(val,$tr5);
+      val = this.gInfo['phone'];
+      that._appendStringTd(val,$tr5);
       $tr5.appendTo($exportTable);
     }
 
     if (!_.isBlank(this.gInfo['email'])) {
       var $tr6 = $('<tr></tr>');
-      $('<td></td>').html('Email').appendTo($tr6);
-      $('<td></td>').html(this.gInfo['email']).appendTo($tr6);
+      val = 'Email';
+      that._appendStringTd(val,$tr6);
+      val = this.gInfo['email'];
+      that._appendStringTd(val,$tr6);
       $tr6.appendTo($exportTable);
     }
 
     var $tr7 = $('<tr></tr>');
-    $('<td></td>').html('Signature').appendTo($tr7);
-    $('<td></td>').html(this.gInfo['signature']).appendTo($tr7);
+    val = 'Signature';
+    that._appendStringTd(val,$tr7);
+    val = this.gInfo['signature'];
+    that._appendStringTd(val,$tr7);
     $tr7.appendTo($exportTable);
 
   },

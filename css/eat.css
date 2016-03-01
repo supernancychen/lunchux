@@ -108,9 +108,9 @@ P {
 A {
     text-decoration: none; }
 A:link, A:visited {
-    color: #0391d1; }
+    color: #193b6e; }
 A:hover {
-    color: #2976a0; }
+    color: #193b6e; }
 
 EM {
     font-style: italic; }
@@ -164,7 +164,7 @@ INPUT[type=search],INPUT[type=text], TEXTAREA, DATALIST, SELECT {
     margin-top: 4px;
 }
 INPUT[type=search],INPUT[type=text]:focus, TEXTAREA:focus, DATALIST:focus, SELECT:focus {
-    border-color: #0391d1; }
+    border-color: #193b6e; }
 INPUT[disabled],BUTTON[disabled] {color: rgba(255,255,255,0.5)}
 BUTTON[disabled] {background: #B5CAC5 }
 INPUT[disabled]:hover,BUTTON[disabled]:hover {background:#004e3a;cursor:default}
@@ -243,21 +243,21 @@ SECTION {margin-top:45px!important;}
 .inline {display:inline!important}
 .inline-block {display:inline-block!important}
 .dispnone {display:none;}
-.m-center{margin-left:auto;margin-right:auto}
+.m-center{margin-left:auto;margin-right:auto;margin-top:30px;}
 .ui-input {width:auto!important;display:inline!important}
 img.placeholder {border:1px solid #ddd;min-width:200px;min-height:100px}
 input:invalid,.dropdown.valid.required,.ui-input,
 .invalid-row input[type=text].validation {border:1px solid #004e3a!important}
 
-.sub-card {background: #fff;padding:30px 15px;margin-bottom:15px}
+.sub-card {background: #fff;padding:10px 15px 20px 15px;margin-bottom:15px}
 .sub-card input[type=text] {border:1px solid #ddd;display:inline-block}
-.sub-card h1 {position:relative;text-align: left;padding:0 15px;margin-bottom:15px;
+.sub-card h1 {position:relative;text-align: left;padding:0 5px;margin-bottom:15px;
 font-size:1.8rem;}
 .kid-card h1 a.action , .summary-card h1 a.action,
     .adult-card h1 a.action {position:absolute;right:15px;top:10px;color:#999}
 .kid-card h1 a.action:hover,  .summary-card h1 a.action:hover,
     .adult-card h1 a.action:hover
-{color:#0391d1}
+{color:#193b6e}
 /*.kid-card-optional {border-top:1px solid #ddd;padding-top:30px;padding-bottom:30px}
 .kid-card-optional h1 {text-align: left}*/
 
@@ -302,10 +302,10 @@ font-size:1.8rem;}
 #cStep3-2 .often-list .drop-select {color:#333}
 
 .summary-card.sub-card {text-align: left}
-.summary-card.sub-card p,#cStep3-3 .sub-card h2  {padding-left:15px;}
+
 .summary-card.sub-card h2:not(:first-of-type) {margin-top:30px;}
 .summary-card.sub-card p {margin:0;}
-.summary-card.sub-card p.sub-income {padding-left:45px;}
+.summary-card.sub-card p.sub-income {padding-left:15px;}
 
 #cStep4 .address {width:265px;}
 #cStep4 .apt{width:100px;}
@@ -316,7 +316,7 @@ font-size:1.8rem;}
 #exportTable {visibility:hidden;height:10px;}
 body.skip-income #cStep3 .numb-a {display:none}
 
-#cConfirm .summary-card.sub-card div{text-align: left;padding-left:15px}
+#cConfirm .summary-card.sub-card div{text-align: left;padding-left:7px}
 
 .btn {
     background-color: #004e3a;
@@ -374,14 +374,14 @@ body.skip-income #cStep3 .numb-a {display:none}
 
 
 /*TOOL TIP*/
-.help-tooltip {background-image:none; background-color:#004e3a; color:#fff;  border: 0;}
-.input-tooltip {background-image:none; background-color:#004e3a; color:#fff;  border: 0;}
+.help-tooltip {background-image:none; background-color:#333333; color:#fff;  border: 0;}
+.input-tooltip {background-image:none; background-color:#333333; color:#fff;  border: 0;}
 .help-tooltip .arrow:after {
-    background: #004e3a;
+    background: #333333;
     border: 0 solid white;
 }
 .input-tooltip .arrow:after {
-    background: #004e3a;
+    background: #333333;
     border: 0 solid white;
 }
 .ui-tooltip {
@@ -437,9 +437,9 @@ body.skip-income #cStep3 .numb-a {display:none}
 
 .dropdown {position:relative;background: #fff;height:40px;}
 .dropdown .drop-list,
-    .dropdown .drop-multi {position:absolute;left:0;top:36px;z-index:1;width:100%;display:none;}
+    .dropdown .drop-multi {position:absolute;left:0;top:34px;z-index:1;width:100%;display:none;}
 .dropdown .drop-list.open ,
-    .dropdown .drop-multi.open {display:block;}
+    .dropdown .drop-multi.open {display:block;border:1px solid #ccc;}
 .dropdown .fa {position: absolute; z-index:3;right:10px;top:8px;}
 .dropdown .drop-multi {display:none}
 .dropdown.multi .drop-multi {background: #fff;border:1px solid #ddd;padding:15px}
@@ -473,15 +473,6 @@ body.skip-income #cStep3 .numb-a {display:none}
     bottom: 0;
     left: 0; }
 
-.brown-overlay {
-    background-color: rgba(43, 35, 32, 0.6); }
-
-
-.back-to-top {
-    display: inline-block;
-    text-align: center; }
-.back-to-top SPAN {
-    font-size: 32px; }
 
 .internal {
     margin-top: 30px;

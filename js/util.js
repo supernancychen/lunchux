@@ -194,7 +194,7 @@ function getRandomByDate() {
           d.getMinutes().toString()+
           d.getSeconds();
 }
-var tablesToExcel = (function() {
+var tablesToExcel = (function() {      //put data-type, data-style,data-value ,data-formula
   var uri = 'data:application/vnd.ms-excel;base64,'
           , tmplWorkbookXML = '<?xml version="1.0"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">'
                   + '<DocumentProperties xmlns="urn:schemas-microsoft-com:office:office"><Author>Axel Richter</Author><Created>{created}</Created></DocumentProperties>'
@@ -217,7 +217,7 @@ var tablesToExcel = (function() {
       if (!tables[i].nodeType) tables[i] = document.getElementById(tables[i]);
       for (var j = 0; j < tables[i].rows.length; j++) {
         if (tables[i].rows[j].className.toLowerCase().indexOf(noExcelClass)==-1) {
-          rowsXML += '<Row>'
+          rowsXML += '<Row>';
           for (var k = 0; k < tables[i].rows[j].cells.length; k++) {
             var dataType = tables[i].rows[j].cells[k].getAttribute("data-type");
             var dataStyle = tables[i].rows[j].cells[k].getAttribute("data-style");
